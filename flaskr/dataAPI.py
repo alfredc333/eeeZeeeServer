@@ -11,12 +11,13 @@ from flask import (
     g,
     jsonify,
     make_response,
+    request
 )
 
 from . import db
 
 path = os.path.abspath(".")
-instancePath = os.path.join(path, '../instance')  
+instancePath = os.path.join(path, './instance')  
 print(instancePath)
 
 app = Flask(__name__, instance_path=instancePath)
@@ -31,7 +32,8 @@ db.init_db_app(app)
 
 @app.route("/")
 def hello_world():
-    return "<p>Flask is up and running.</p>"
+    return "<p>Flask is up and running!</p>"
+
 
 
 @app.route("/getData")
@@ -51,9 +53,26 @@ def getData():
             'AirPressure': str(rows["AirPressure"]),
             'CO2level': str(rows["CO2level"]),
             'Measurement Timestamp': str(rows["Timestamp"]),
-            'Real time Timestamp': ts
+            'Time Now ': ts
         }), 200)
 
     response.headers["Content-Type"] = "application/json"
+    return response
+
+@app.route("/setData", methods=['POST'])
+def setData():
+    ts = time.strftime("%Y-%m-%d %H:%M:%S")
+    app.logger.debug('Starting DB write at ' + ts)
+    dbConnection = db.get_db()
+    c = dbConnection.cursor()
+    #test line dbString = 'INSERT INTO Measurements VALUES(null ,\'2001-01-01 10:37:09\', 4, 14, 44, 444)'
+    dbString = request.json['data'] 
+    print(dbString)
+
+    c.execute(dbString)
+    dbConnection.commit()  
+        
+    response = make_response("Measurement written into DB", 200)
+    #response.headers["Content-Type"] = "application/json"
     return response
 
