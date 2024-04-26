@@ -13,5 +13,6 @@ start container in local directory:
 start docker container: 
 * <b>docker run -d --name=testserver -p:5000:5000 alfredc333/eeezeee:latest</b>
 
+<b>NOTE: This is demo code. Data is being sent from eeeZeeeSensor to eeeZeeeServer over Flask API as an INSERT query. Consider encryption for the communication channel in your production code.</b>
 
 All files are released under a [MIT license](https://en.wikipedia.org/wiki/MIT_License)
