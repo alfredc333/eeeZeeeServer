@@ -1,4 +1,4 @@
-<h1>eeeZeee Server receives and stores sensor data measurements. Python. Sqlite3. Flask APIs. Linux/Win. Docker image.</h1> 
+<h1>eeeZeeeServer receives and stores sensor data measurements from eeeZeeeSensor. Python. Sqlite3. Flask APIs. Linux/Win. Docker image.</h1> 
 
 <h3>Flask API exposed at your_IP_address_here:5000/getData</h3> 
 
