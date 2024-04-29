@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>Measurements</h1>
+{% endblock %}
+
+{% block hdr %}
+<h1>eeeZeee Server</h1>
+{% endblock %}
+
+{% block ftr %}
+eeeZeeeSensor Demo
+{% endblock %}
+
+{% block nav %}
+<ul>
+    <li><a href="http://localhost:5000">Home</a></li>
+    <li><a href="http://localhost:5000/getData">/getData API</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<meta http-equiv="refresh" content="10">
+<form method="post">
+
+    <table border="1">
+        <tr>
+            <th>Parameter</th>
+            <th>Value</th>
+            <th>Units</th>
+        </tr>
+        <tr>
+            <td>Temperature</td>
+            <td>{{ d["Temperature"] }}</td>
+            <td>º Celsius</td>
+        </tr>
+        <tr>
+            <td>Humidity</td>
+            <td>{{ d["Humidity"] }}</td>
+            <td>%</td>
+        </tr>
+        <tr>
+            <td>Air Pressure</td>
+            <td>{{ d["AirPressure"] }}</td>
+            <td>hPa</td>
+        </tr>
+        <tr>
+            <td>CO2 Level</td>
+            <td>{{ d["CO2level"] }}</td>
+            <td>ppm</td>
+        </tr>
+        <tr>
+            <td>Measurement Timestamp</td>
+            <td>{{ d["Timestamp"] }}</td>
+            <td>Date Time</td>
+        </tr>
+
+    </table>
+
+</form>
+{% endblock %}

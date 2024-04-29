@@ -11,7 +11,8 @@ from flask import (
     g,
     jsonify,
     make_response,
-    request
+    request,
+    render_template
 )
 
 from . import db
@@ -31,8 +32,23 @@ app.config.from_mapping(
 db.init_db_app(app)
 
 @app.route("/")
+def showIndex():
+    print("test")  
+
+    ts = time.strftime("%Y-%m-%d %H:%M:%S")
+    app.logger.debug('Starting DB retrieval at ' + ts)
+    dbH = db.get_db()
+    query = 'SELECT * from Measurements ORDER By Mid DESC'
+    cur = dbH.execute(query)
+    rows = cur.fetchone()    
+    return render_template('home.html', d = rows)
+    
+
+
+@app.route("/hello")
 def hello_world():
-    return "<p>Flask is up and running!</p>"
+    return render_template('try.html')
+    #return "<p>Flask is up and running!</p>"
 
 
 

@@ -1,0 +1,25 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} *** eeeZeeeServer</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+
+<body>
+    <div id="hdr"> {% block hdr %}Header here {% endblock %}</div>
+    <div id="parent">
+        <div id="child-left">
+            <nav>
+                {% block nav %}Nav menu here{% endblock %}
+            </nav>
+        </div>
+        <div id="child-right">
+            <section class="content">
+                <header>
+                    {% block header %}<h1>eeeZeee Server Demo</h1>{% endblock %}
+                </header>
+                {% block content %}content here {% endblock %}
+            </section>
+        </div>
+    </div>
+    <div id="ftr"> {% block ftr %}Footer here {% endblock %}</div>
+</body>
