@@ -2,7 +2,7 @@
 
 <h3>Flask API exposed at your_IP_address_here:5000/getData</h3> 
 
-<h3>Docker instance:  https://hub.docker.com/r/alfredc333/eeezeee</h3>
+<h3>Docker instance:   https://hub.docker.com/repository/docker/alfredc333/eeezeee/general </h3>
 
 
 <h3>Commands:</h3>
