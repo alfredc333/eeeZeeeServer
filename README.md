@@ -11,7 +11,7 @@ start container in local directory:
 * <b>docker compose up --build</b>
 
 start docker container: 
-* <b>docker run -d --name=testserver -p:5000:5000 alfredc333/eeezeee:latest</b>
+* <b>docker run -d --name=testserver -p:5000:5000 --mount type=volume,source=sqlite3-db,destination=/eeeZeeeServer/instance alfredc333/eeezeee:latest</b>
 
 <b>NOTE: This is demo code. Data is being sent from eeeZeeeSensor to eeeZeeeServer over Flask API as an INSERT query. Consider encryption for the communication channel in your production code.</b>
 
